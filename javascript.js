@@ -21,7 +21,11 @@ function getHumanChoice() {
 }
 
 console.log(getHumanChoice());
+
 // Declare the players scores as variables
+
+let humanScore = 0;
+let computerScore = 0;
 // Play a single round
 // Now play 5 rounds per game
 
