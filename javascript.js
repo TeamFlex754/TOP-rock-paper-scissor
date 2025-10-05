@@ -16,35 +16,44 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-// Declare the players scores as variables
-let humanScore = 0;
-let computerScore = 0;
-
 // Play a single round
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         return "It's a tie!";
     } else if (
-        (humanChoice === "rock" && computerChoice === "scissors") || 
+        (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "scissors" && computerChoice === "paper") ||
         (humanChoice === "paper" && computerChoice === "rock")
     ) {
-        humanScore++;
         return `You win! ${humanChoice} beats ${computerChoice}.`
     } else {
-        computerScore++;
         return `You lose! ${computerChoice} beats ${humanChoice}.`
     }
 
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-const result = playRound(humanSelection, computerSelection);
 
-console.log(result);
-console.log(`Your Score: ${humanScore}\nComputer Score: ${computerScore}`)
+
 
 // Now play 5 rounds per game
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
 
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        const result = playRound(humanSelection, computerSelection);
+        console.log(result);
+
+        if (result.includes("win")) {
+            humanScore++;
+        } else if (result.includes("lose")) {
+            computerScore++;
+        }
+    }
+    console.log(`Your Score: ${humanScore}\nComputer Score: ${computerScore}`);
+}
+
+playGame();
 
