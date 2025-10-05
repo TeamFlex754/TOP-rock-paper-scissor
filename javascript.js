@@ -44,15 +44,18 @@ function playGame() {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
         const result = playRound(humanSelection, computerSelection);
-        console.log(result);
+        
 
         if (result.includes("win")) {
             humanScore++;
+            
         } else if (result.includes("lose")) {
             computerScore++;
+            
         }
+        alert(`${result}\nScore:\nYou: ${humanScore}\nComputer: ${computerScore}`)
     }
-    console.log(`Your Score: ${humanScore}\nComputer Score: ${computerScore}`);
+    alert(`Final Score:\nYou: ${humanScore}\nComputer: ${computerScore}`);
 }
 
 playGame();
